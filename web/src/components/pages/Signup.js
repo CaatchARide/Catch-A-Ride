@@ -12,7 +12,7 @@ function Signup() {
           </Form.Group>
           <Form.Group controlId="dob">
             <Form.Label>Date of Birth</Form.Label>
-            <Form.Control type="email" placeholder="01/01/1999" />
+            <Form.Control type="dob" placeholder="01/01/1999" />
           </Form.Group>
           <Form.Group controlId="formEmail">
             <Form.Label>Email Address</Form.Label>
