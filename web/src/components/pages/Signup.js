@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Form, Container} from 'react-bootstrap'
 
 
 
-function Signup() {
+export default function Signup() {
+    return (
     <Container>
         <Form>
           <Form.Group controlId="formName">
@@ -12,7 +14,7 @@ function Signup() {
           </Form.Group>
           <Form.Group controlId="dob">
             <Form.Label>Date of Birth</Form.Label>
-            <Form.Control type="dob" placeholder="01/01/1999" />
+            <Form.Control type="email" placeholder="01/01/1999" />
           </Form.Group>
           <Form.Group controlId="formEmail">
             <Form.Label>Email Address</Form.Label>
@@ -29,9 +31,28 @@ function Signup() {
             <Form.Label>Password Confirmation</Form.Label>
             <Form.Control type="password" placeholder="********" />
           </Form.Group>
-          <Button variant="primary" type="submit">Login</Button>
-          
+          <div className="input-group">
+            <div className="input-group-prepend"/>
+            <span className="input-group-text" id="inputGroupFileAddon01">
+            Input Picture
+            </span>
+            <div className="custom-file">
+                <input
+                    type="file"
+                    className="custom-file-input"
+                    id="inputGroupFile01"
+                    aria-describedby="inputGroupFileAddon01"
+                />
+                <label className="custom-file-label" htmlFor="inputGroupFile01">
+                example.png
+                </label>
+            </div>
+        </div>
+        
+        <Button variant="primary" type="submit">Login</Button>
         </Form>
+
     </Container>
+    );
 };
 
