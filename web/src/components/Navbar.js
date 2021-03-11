@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
-import { Button } from './Button';
+//import { Button } from './Button';
 import './Navbar.css';
 
 
@@ -35,17 +35,21 @@ function Navbar() {
                      </div>
                      <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                         <li className='nav-item'>
-                            <Link to='/home' className='nav-links' onClick={closeMenu}>
-                                Home
-                            </Link>
-                        </li>
-                        <li className='nav-item'>
                             <Link to='/about' className='nav-links' onClick={closeMenu}>
                                 About
                             </Link>
                         </li>
+                        <li className='nav-item'>
+                            <Link to='/login' className='nav-links' onClick={closeMenu}>
+                                Login
+                            </Link>
+                        </li>
+                        <li className='nav-item'>
+                            <Link to='/signup' className='nav-links' onClick={closeMenu}>
+                                Sign-up
+                            </Link>
+                        </li>
                      </ul>
-                     {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
                 </div>
             </nav>
         </>

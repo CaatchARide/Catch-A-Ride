@@ -1,11 +1,13 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Form, Container} from 'react-bootstrap'
 
 
 export default function Login() {
   return (
-    <Container>
-      <Form>
+  
+<Container>
+    <Form>
         <Form.Group controlId="formEmail">
           <Form.Label>Email Address</Form.Label>
           <Form.Control type="email" placeholder="jdoe@albany.edu" />
@@ -18,7 +20,8 @@ export default function Login() {
           <Form.Control type="password" placeholder="********" />
         </Form.Group>
         <Button variant="primary" type="submit">Login</Button>
-      </Form>
-      </Container>
+    </Form>
+</Container>
+      
   );
 };
