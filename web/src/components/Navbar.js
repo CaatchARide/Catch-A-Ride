@@ -49,6 +49,11 @@ function Navbar() {
                                 Sign-up
                             </Link>
                         </li>
+                        <li className= 'nav-item'>
+                                <Link to= '/Contact' className='nav-links' onClick={closeMenu}>
+                                    Contact Us
+                                </Link>
+                        </li>
                      </ul>
                 </div>
             </nav>
