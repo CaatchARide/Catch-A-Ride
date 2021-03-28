@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Form, Container} from 'react-bootstrap'
 
@@ -31,25 +31,12 @@ export default function Signup() {
             <Form.Label>Password Confirmation</Form.Label>
             <Form.Control type="password" placeholder="********" />
           </Form.Group>
-          <div className="input-group">
-            <div className="input-group-prepend"/>
-            <span className="input-group-text" id="inputGroupFileAddon01">
-            Input Picture
-            </span>
-            <div className="custom-file">
-                <input
-                    type="file"
-                    className="custom-file-input"
-                    id="inputGroupFile01"
-                    aria-describedby="inputGroupFileAddon01"
-                />
-                <label className="custom-file-label" htmlFor="inputGroupFile01">
-                example.png
-                </label>
-            </div>
-        </div>
+          <Form.Group controlId="formProfilePicture">
+            <Form.Label>Profile Picture:</Form.Label>
+            <Form.File id="fileSelfie"/>
+          </Form.Group>
         
-        <Button variant="primary" type="submit">Login</Button>
+        <Button variant="primary" type="signup" href="http://localhost:3000/login">Signup</Button>
         </Form>
 
     </Container>
