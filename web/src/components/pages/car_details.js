@@ -30,7 +30,7 @@ export default function car_details() {
                     <Form.Control type="plateNumber" placeholder="Enter plate number of desired car"/>
                     <Form.Text> We'll never share your car's plate numbers with anyone else.</Form.Text>
                 </Form.Group>
-               <Button variant="primary" type="submit">Submit</Button>
+               <Button variant="primary" type="submit" href="http://localhost:3000/driverDash">Submit</Button>
            </Form>
        </Container>
 

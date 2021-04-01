@@ -6,7 +6,9 @@ import {Button, Form, Container} from 'react-bootstrap'
 
 export default function Signup() {
     return (
+      
     <Container>
+        <h3 style={{textAlign : 'center'}}>Sign-up Page</h3>
         <Form>
           <Form.Group controlId="formName">
             <Form.Label>Name</Form.Label>

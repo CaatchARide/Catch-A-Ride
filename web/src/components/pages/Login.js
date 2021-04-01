@@ -7,6 +7,7 @@ export default function Login() {
   return (
   
 <Container>
+  <h3 style={{textAlign : 'center'}}>Login Page</h3>
     <Form>
         <Form.Group controlId="formEmail">
           <Form.Label>Email Address</Form.Label>
