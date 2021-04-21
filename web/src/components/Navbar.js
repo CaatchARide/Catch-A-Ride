@@ -1,64 +1,30 @@
-import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom';
+import React from 'react';
 //import { Button } from './Button';
-import './Navbar.css';
+//import './Navbar.css';
+import {Navbar, Nav, Container} from 'react-bootstrap'
 
 
-
-function Navbar() {
-    const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
-    const closeMenu = () => setClick(false);
-    const [button, setButton] = useState(true);
-    const showButton = () => {
-        if(window.innerWidth <= 960){
-            setButton(false);
-        } else {
-            setButton(true);
-        }
-    };
-
-    useEffect(() => {
-        showButton()
-    }, [])
-    window.addEventListener('resize', showButton)
+export default function Home() {
+    
     return (
-        <>
-            <nav className="navbar">
-                <div className="navbar-container">
-                    <Link to='/' className='navbar-title' onClick=
-                    {closeMenu}>
-                        Catch-A-Ride
-                    </Link>
-                     <div className='menu-icon' onClick={handleClick}>
-                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-                     </div>
-                     <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                        <li className='nav-item'>
-                            <Link to='/about' className='nav-links' onClick={closeMenu}>
-                                About
-                            </Link>
-                        </li>
-                        <li className='nav-item'>
-                            <Link to='/login' className='nav-links' onClick={closeMenu}>
-                                Login
-                            </Link>
-                        </li>
-                        <li className='nav-item'>
-                            <Link to='/signup' className='nav-links' onClick={closeMenu}>
-                                Sign-up
-                            </Link>
-                        </li>
-                        <li className= 'nav-item'>
-                                <Link to= '/Contact' className='nav-links' onClick={closeMenu}>
-                                    Contact Us
-                                </Link>
-                        </li>
-                     </ul>
-                </div>
-            </nav>
-        </>
+        
+        
+    <Navbar className="navbar" variant="dark" expand="lg" >
+        <Container>
+        <Navbar.Brand href="/">Catch-A-Ride</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <Nav.Link href="/about" style={{color : 'white'}}>About</Nav.Link>
+            <Nav.Link href="/signup" style={{color : 'white'}}>Signup</Nav.Link>
+            <Nav.Link href="/login" style={{color : 'white'}}>Login</Nav.Link>
+            <Nav.Link href="/Contact" style={{color : 'white'}}>Contact Us</Nav.Link>     
+        </Navbar.Collapse>
+        </Container>
+    </Navbar>
+    
+    
     )
+    
 }
 
-export default Navbar
+
