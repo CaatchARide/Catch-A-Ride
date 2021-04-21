@@ -23,8 +23,7 @@ export default function About() {
         <Carousel>
                 <Carousel.Item>
                     <img
-                        width={930}
-                        height={700}
+                        width="1150"
                         //alt="900x500"
                         className="a"
                         src={slide01}
@@ -37,14 +36,14 @@ export default function About() {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        width={930}
+                        width="1150"
                         className="b"
                         src={slide02}
                         alt="Second slide"
                     />
                     <Carousel.Caption>
                         <h3 style={{color : 'lime'}}>Good for the enviorment!</h3>
-                        <p style={{color : 'lime'}} size={{size : 'medium'}}>Carbon emission from cars are destroy the enviorment, using Catch-A-Ride will help lower carbon emission.</p>
+                        <p style={{color : 'lime'}} size={{size : 'medium'}}>Carbon emission from cars are destroying the enviorment, using Catch-A-Ride will help lower carbon emission.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

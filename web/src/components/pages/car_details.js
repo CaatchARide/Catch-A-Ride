@@ -12,7 +12,8 @@ export default function car_details() {
                     <Form.Label>Enter License ID:</Form.Label>
                     <Form.Control type="licenseID" placeholder="Enter license ID"/>
                     <Form.Text> We'll never share your license ID with anyone else.</Form.Text>
-                    <Form.File id="fileLicense" label="Include a picture copy of your license:"/>
+                    <Form.File id="fileLicense1" label="Include a picture copy of the front of your license:"/>
+                    <Form.File id="fileLicense2" label="Include a picture copy of the back of your license:"/>
                     <Form.Text> We'll never share your license with anyone else.</Form.Text>
                </Form.Group>
                <Form.Group controlId="formInsurance">

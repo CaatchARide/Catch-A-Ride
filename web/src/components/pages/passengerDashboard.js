@@ -13,7 +13,7 @@ export default function passengerDash() {
 
             <div>
                 <br/>
-                <span>This button will redirect you to the driver dashboard.</span>
+                <span>This button will redirect you to the driver dashboard.   </span>
                 <Button variant="primary" type= "drive" href="/driverDash">Switch to driver</Button>
             </div>
 
