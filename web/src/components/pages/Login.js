@@ -20,7 +20,7 @@ export default function Login() {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="********" />
         </Form.Group>
-        <Button variant="primary" type="submit" href="http://localhost:3000/Switchpage">Login</Button>
+        <Button style={{backgroundColor:"#72A98C"}} variant="primary" type="submit" href="http://localhost:3000/Switchpage">Login</Button>
     </Form>
 </Container>
       

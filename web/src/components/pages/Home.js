@@ -20,7 +20,7 @@ export default function Home() {
                 <br />
                     <Col><Col><Col><Col><Col>
                     <h5 style={{justifyContent :'left', fontStyle :'italic'}}>A community that will help you get to your destination...</h5>
-                    <h1 style={{fontWeight :'bolder'}}>CATCH A RIDE WITH US.</h1>
+                    <h1 style={{fontWeight :'bolder', textAlign : 'center'}}>CATCH A RIDE WITH US.</h1>
                     </Col></Col></Col></Col></Col>
                     <br />
                     <br />

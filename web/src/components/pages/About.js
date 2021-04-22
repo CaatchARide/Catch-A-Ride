@@ -17,7 +17,7 @@ export default function About() {
             <p>
                 Catch-a-Ride is a unique idea that combines the convenience of carpooling and the telecommunications to create essentially a rideshare program where both the driver and passenger are able to benefit. What makes Catch-a-Ride unique is that we will start out hyper-localized, this allows us to better serve our users because there are similar peak times in which students will be using the app. There are also similar places in which students typically go when they travel long-distance (New York City, Long Island). Before we choose to expand into another college we will ensure that a good enough percentage of the students in the university will be using and benefiting from our app. This will allow us to expand while also keeping true to what makes us unique here at Catch-a-Ride.
             </p>
-            <Button variant="primary" type="signup" href="http://localhost:3000/signup">Sign-up Now!</Button>
+            <Button style={{backgroundColor:"#72A98C"}} variant="primary" type="signup" href="http://localhost:3000/signup">Sign-up Now!</Button>
             </Jumbotron>
         
         <Carousel>

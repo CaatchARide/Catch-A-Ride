@@ -9,12 +9,12 @@ export default function Switchpage() {
         <Container>
         <h3 style={{textAlign : 'center'}}>Who will you be today?</h3>
             <Form>
-                <Button variant="primary" type= "drive" href="http://localhost:3000/driverDash" size="lg" block>Driver</Button>
+                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="http://localhost:3000/driverDash" size="lg" block>Driver</Button>
             </Form>
             <h4 style={{textAlign : 'center'}}>OR</h4>
 
             <Form>
-                <Button variant="primary" type= "pass" href="http://localhost:3000/passengerDash" size="lg" block>Passenger</Button>
+                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "pass" href="http://localhost:3000/passengerDash" size="lg" block>Passenger</Button>
             </Form>
 
         </Container>

@@ -26,7 +26,7 @@ export default function Contact() {
         </Form>
         <Form>
            
-        <Button variant="primary" type="submit">Submit</Button>
+        <Button style={{backgroundColor:"#72A98C"}} variant="primary" type="submit">Submit</Button>
         </Form>
 
         </Container>

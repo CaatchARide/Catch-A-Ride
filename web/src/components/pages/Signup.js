@@ -38,7 +38,7 @@ export default function Signup() {
             <Form.File id="fileSelfie"/>
           </Form.Group>
         
-        <Button variant="primary" type="signup" href="http://localhost:3000/login">Signup</Button>
+        <Button style={{backgroundColor:"#72A98C"}} variant="primary" type="signup" href="http://localhost:3000/login">Signup</Button>
         </Form>
 
     </Container>
