@@ -17,3 +17,6 @@ npm start
 ```
 
 3. Go to [http://localhost:4242/checkout.html](http://localhost:4242/checkout.html)
+
+
+Connect to our Server
