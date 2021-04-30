@@ -32,6 +32,7 @@
 .btn--large{
     padding: 12px 26px;
     font-size: 20px;
+    align-items: center;
 }
 
 .btn--medium:hover, .btn--large:hover{
