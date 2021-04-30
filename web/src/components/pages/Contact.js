@@ -6,7 +6,7 @@ import {Button, Form, Container} from 'react-bootstrap'
 
 export default function Contact() {
     return (
-        <Container>
+        <Container className="nonsense">
             Got a question? We'd love to hear from you! Send us a message and we'll respond as soon as possible.
         
         <Form>

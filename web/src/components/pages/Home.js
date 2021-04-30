@@ -12,7 +12,7 @@ export default function Home() {
     <div className="home">
                             <br />
 
-        <Container fluid>
+        <Container className="home-page">
             <Row>
                 <Col>
                 <br />
@@ -33,12 +33,12 @@ export default function Home() {
                                             <Col>
                                                 <Col>
                                                     <Col>
-                                                        <Col> <Col> <Col>
-                                                        <Button style={{backgroundColor:"#72A98C"}} variant="primary" size="lg" href="/login" >Sign in</Button>
+                                                        
+                                                                        <Button className="sign-in-button"style={{backgroundColor:"#72A98C"}} variant="primary" size="lg" href="/login" >Sign in</Button>
                                                             <br />
                                                             <br />
-                                                        <Button style={{backgroundColor:"#72A98C"}} variant="secondary" size="lg" href="/signup">Sign up</Button>
-                                                        </Col></Col></Col>
+                                                                        <Button className="sign-in-button"style={{backgroundColor:"#72A98C"}} variant="secondary" size="lg" href="/signup">Sign up</Button>
+                                                        
                                                     </Col>
                                                 </Col>
                                             </Col>
