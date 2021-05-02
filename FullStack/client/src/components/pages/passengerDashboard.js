@@ -1,6 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Button, Container, Accordion, Card} from 'react-bootstrap'
+import {Button, Container, Accordion, Card, Form} from 'react-bootstrap'
 import carsharing from './images/banner1.png'
 
 export default function passengerDash() {
@@ -51,8 +51,8 @@ export default function passengerDash() {
                 </Accordion.Collapse>
             </Card>
             <Card>
-                <Card.Header style={{backgroundColor:"#72A98C"}}>
-                <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{color: "white"}}>
+                <Card.Header style={{backgroundColor:"#72A98C"}} >
+                <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{color: "white"}} disabled>
                     Make Payment
                 </Accordion.Toggle>
                 </Card.Header>
@@ -62,13 +62,31 @@ export default function passengerDash() {
                 </Card.Body>
                 </Accordion.Collapse>
             </Card>
+            <Card>
+                <Card.Header style={{backgroundColor:"#72A98C"}}>
+                <Accordion.Toggle as={Button} variant="link" eventKey="4" style={{color: "white"}} >
+                    Chat with Driver
+                </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="4">
+                <Card.Body>Your recieved messages should appear here: <br />
+                <Form>
+                    <Form.Group controlId = "passengerMessage">
+                        <Form.Label>Enter message:</Form.Label>
+                        <Form.Control type="passengersentMessage" placeholder="Hey!"/>
+                        <Form.Text> Messages between the driver and passenger are for the sole purpose of communication.</Form.Text>
+                    </Form.Group>
+                </Form>
+                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive">Send</Button>
+                </Card.Body>
+                </Accordion.Collapse>
+            </Card>
             </Accordion>
             <div>
                 <br/>
                 <span>This button will redirect you to the driver dashboard.   </span>
                 <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/driverDash">Switch to driver</Button>
                 <br />
-
                 <br />
                 <br />
                 <br />

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { response } = require('express');
 
-const trip = require('../models/tripSchema');
+const request = require('../models/requestSchema');
 
 router.get('/trips', async (req, res,) => {
     
@@ -16,22 +16,22 @@ router.get('/trips', async (req, res,) => {
     }
 });
 
-router.post('/booking', async (req, res,) => {
+router.post('/makerequest', async (req, res,) => {
     
     
     try{
-        const { date, time, from, to, price, numberOfPassengers} = req.body;
+        const { numberOfPassengers, numberOfBags, preferences, additionalInfo } = req.body;
 
-        if(!date || !time || !from || !to || !price || !numberOfPassengers){
+        if(!numberOfPassengers || !numberOfBags || !preferences || !additionalInfo){
             return res.status(422).json({ error: "Please fill all the information"})
         }
      
 
-            const newTrip = new trip({ date, time, from, to, price, numberOfPassengers });
+            const newRequest = new request({ numberOfPassengers, numberOfBags, preferences, additionalInfo });
 
             //pre save it's the middleware
 
-            await newTrip.save();
+            await newRequest.save();
 
             res.status(201).json({ message: "Thank you for reaching out!"});
         
@@ -42,10 +42,10 @@ router.post('/booking', async (req, res,) => {
     
 });
 
-router.get('/booking', async (req, res,) => {
+router.get('/makerequest', async (req, res,) => {
     
     try{
-        const post = await trip.findOne({});
+        const post = await request.findOne({});
         if(!post) throw Error(' No Items');
         res.status(200).json(post); // Everything is okay
     } catch(err) {
@@ -53,17 +53,4 @@ router.get('/booking', async (req, res,) => {
 
     }
 });
-
-router.get('/booking', async (req, res,) => {
-    
-    try{
-        const post = await trip.findOne({});
-        if(!post) throw Error(' No Items');
-        res.status(200).json(post); // Everything is okay
-    } catch(err) {
-        res.status(400).json({ msg: err })
-
-    }
-});
-
 module.exports = router;

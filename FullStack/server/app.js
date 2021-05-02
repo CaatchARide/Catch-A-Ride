@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 const user = require('./models/userSchema');
 const dotenv = require("dotenv");
 
-// User route
+//  routes
 const userRoutes = require('./routes/auth');
 const contactRoutes = require('./routes/contact');
 const tripRoutes = require('./routes/Trip');
+const requestRoutes = require('./routes/request')
 
 
 const app = express();
@@ -35,24 +36,16 @@ mongoose.connect(DB, {
 app.use(require('./routes/auth', userRoutes));
 app.use(require('./routes/contact', contactRoutes));
 app.use(require('./routes/Trip', tripRoutes));
+app.use(require('./routes/request', requestRoutes));
 
 
-// Middleware 
 
-const middleware = (req, res, next) => {
-    console.log(`Hello my middleware`);
-}
-
-middleware();
 
 app.get('/', (req, res) => {
     res.send(`Hello world from server`);
 
 });
-app.get('/about', middleware, (req, res) => {
-    res.send(`Hello about world from server`);
 
-});
 
 app.get('/contact', (req, res) => {
     res.send(`Hello contact world from server`);
@@ -70,7 +63,7 @@ app.get('/signup', (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, () => console.log(`Server is running at port ${PORT}`));
 

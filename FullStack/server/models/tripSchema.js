@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 
 const tripSchema = new mongoose.Schema({
  
+    date: {
+        type: String,
+        required: true   
+    },
     time: {
         type: String,
         required: true   

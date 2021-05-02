@@ -3,6 +3,7 @@ const router = express.Router();
 const { response } = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const authenticate = require("../middleware/authenticate");
 
 
 const user = require('../models/userSchema');
@@ -28,15 +29,15 @@ router.post('/register', async (req, res,) => {
         const { firstName, lastName, dateOfBirth, email, password, cpassword } = req.body;
 
         if(!firstName || !lastName || !dateOfBirth || !email || !password || !cpassword ){
-            return res.status(422).json({ error: "Please fill all the information"})
+            return res.status(400).json({ error: "Please fill all the information"})
         }
         const userExist = await user.findOne({ email: email });
         
         if(userExist) {
-            return res.status(422).json({ error: "Email already exists"});
+            return res.status(400).json({ error: "Email already exists"});
         
         } else if(password != cpassword ){
-            return res.status(422).json({ error: "password do not match"});
+            return res.status(400).json({ error: "password do not match"});
         
         } else {
 
@@ -75,7 +76,7 @@ router.post('/signin', async(req, res) => {
             token = await userLogin.generateAuthToken();
             console.log(token);
 
-            res.cookie("jwtoken", token, {
+            res.cookie('jwtoken', token, {
                 expires: new Date(Date.now() + 25892000000),
                 httpOnly: true
             });
@@ -98,6 +99,23 @@ router.post('/signin', async(req, res) => {
     }
 });
 
+router.get('/signin', authenticate, (req, res) => {
+    console.log(`Welcome to catch a ride`)
+    res.send(req.rootUser);
+
+});
+
+router.get('/register', async (req, res,) => {
+    
+    try{
+        const post = await user.findOne({});
+        if(!post) throw Error(' No Items');
+        res.status(200).json(post); // Everything is okay
+    } catch(err) {
+        res.status(400).json({ msg: err })
+
+    }
+});
 
 
 

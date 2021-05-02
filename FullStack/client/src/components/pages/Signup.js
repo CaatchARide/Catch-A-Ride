@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'
-import {Button, Form, Container} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Button, Form, Container} from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
 
 
 
 export default function Signup() {
-   
+   const history = useHistory();
     const [user, setUser] = useState({
       firstName:"", lastName:"", dateOfBirth:"", email:"", password:"", cpassword:"" 
     });
@@ -30,13 +31,13 @@ export default function Signup() {
         })
       });
       const data = await res.json();
-      if(data.status === 422 || !data){
+      if(res.status === 400 || !data){
         window.alert("Invalid Registration");
         console.log("invalid registration");
       } else {
-        window.alert("valid Registration");
+        window.alert("Succesful Registration");
         console.log("sucessful registration");
-        
+        history.push("/login");
 
        
       }
@@ -45,9 +46,9 @@ export default function Signup() {
     }
     return (
       
-    <Container className="nonsense">
+    <Container className="nonsense" method="POST">
         <h3 style={{textAlign : 'center'}}>Sign-up Page</h3>
-        <Form method="POST">
+        <Form >
           <Form.Group controlId="firstName">
             <Form.Label> First Name</Form.Label>
             <Form.Control type="firstName"

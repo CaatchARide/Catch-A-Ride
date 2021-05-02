@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import face from './images/drivericon.png'
-import carpool from './images/icon-standard.png'
+//import face from './images/drivericon.png'
+//import carpool from './images/icon-standard.png'
 import { Button } from 'react-bootstrap'
 
 
 
 export default function Switchpage() {
    
-    return (
+   
+
+  
+  return (
         
         <div className="nonsense">
             <br />

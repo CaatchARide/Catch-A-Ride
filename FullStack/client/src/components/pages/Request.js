@@ -1,41 +1,78 @@
-import React from 'react'
-import { Container, Form, Button } from 'react-bootstrap'
+import React, { useState } from 'react'
+import {  Form, Button } from 'react-bootstrap'
+//import { useHistory } from 'react-router-dom'
+
 
 const Request = () => {
+  //const history = useHistory();
+  const [request, setRequest] = useState({
+    numberOfPassengers:"", numberOfBags:"", preferences:"", additionalInfo:""
+  });
+ 
+  let name, value;
+  const handleInputs = (e) => {
+    console.log(e);
+    name = e.target.name;
+    value = e.target.value;
+    setRequest({ ...request, [name]:value});
+  }
+  const postData = async (e) => {
+    e.preventDefault();
+    const { numberOfPassengers, numberOfBags, preferences, additionalInfo } = request;
+    
+    const res = await fetch("/makerequest", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify({
+        numberOfPassengers, numberOfBags, preferences, additionalInfo
+      })
+    });
+    const data = await res.json();
+    if(res.status === 422 || !data){
+      window.alert("Invalid credentials");
+      console.log("invalid registration");
+    } else {
+      window.alert("Trip Created Succesfully");
+      console.log("sucessful registration");
+      //history.push("/posts");
+
+     
+    }
+
+
+  }
     return (
         <>
-            <form className="container md-5">
-  <div className="form-group">
-    <label for="exampleFormControlInput1">Number of passengers</label>
-    <input type="email" className="form-control" id="exampleFormControlInput1" placeholder=""/>
-  </div>
-  <div className="form-group">
-    <label for="exampleFormControlSelect1">Number of bags</label>
-    <select className="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div className="form-group">
-    <label for="exampleFormControlTextarea1">Preferences</label>
-    <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please mention about Pick up, Drop-off, music, smoking, seat preference"></textarea>
-  </div>
- 
-  <div className="form-group">
-    <label for="exampleFormControlTextarea1">Additional Information</label>
-    <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Additional details that driver should know"></textarea>
-  </div>
+      <div className="container mt-5" method="POST">
+            <Form>
+                        <Form.Group controlID="numberOfPassengers">
+                            <Form.Label>Number of passengers</Form.Label>
+                            <Form.Control  name = "numberOfPassengers" value={request.numberOfPassengers}
+            onChange={handleInputs}/>
+                        </Form.Group>
+                        <Form.Group controlID="numberOfBags">
+                            <Form.Label>Number of bags</Form.Label>
+                            <Form.Control name="numberOfBags" value={request.numberOfBags}
+                            onChange={handleInputs} placeholder=" " />
+                        </Form.Group>
+                        <Form.Group controlID="preferences">
+                            <Form.Label>Preferences</Form.Label>
+                            <Form.Control type="text" name="preferences" value={request.preferences}
+                            onChange={handleInputs} placeholder="" />
+                        </Form.Group>
+                        <Form.Group controlID="additionalInfo">
+                            <Form.Label>Additional Information</Form.Label>
+                            <Form.Control name="additionalInfo" value={request.additionalInfo}
+                            onChange={handleInputs}placeholder="" />
+                        </Form.Group>
+                     
 
-  
+                        <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "submit" onClick={postData}>Post Trip</Button>
+                        </Form>
 
-  <Button style={{backgroundColor:"#72A98C"}} variant="primary" type="submit" href="/passengerDash">Submit</Button>
-  <br />
-  <br />
-  <br />
-</form>
+                        </div>
         </>
     )
 }

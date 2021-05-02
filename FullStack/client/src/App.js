@@ -19,6 +19,8 @@ import post from './components/pages/Post'
 import Footer from './components/Footer'
 import payment from './components/pages/payment/payment'
 import request from './components/pages/Request'
+import account from './components/pages/Account'
+import createTrip from './components/pages/CreateTrip'
 
 
 
@@ -42,6 +44,8 @@ function App() {
         <Route path = '/posts' exact component= {post}/>
         <Route path = '/payment' exact component= {payment}/>
         <Route path = '/request' exact component= {request}/>
+        <Route path = '/account' exact component= {account}/>
+        <Route path = '/createtrip' exact component= {createTrip}/>
       </Switch>
       <Footer />
       </Router>
