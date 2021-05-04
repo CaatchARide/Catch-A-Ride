@@ -55,7 +55,7 @@ export default function passengerDash() {
             </Card>
             <Card>
                 <Card.Header style={{backgroundColor:"#72A98C"}} >
-                <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{color: "white"}} disabled>
+                <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{color: "white"}}>
                     Make Payment
                 </Accordion.Toggle>
                 </Card.Header>
