@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 const CreateTrip = () => {
     const history = useHistory();
     const [trips, setTrips] = useState({
-        date:"", time:"", from:"", to:"", price:"", numberOfPassengers:"" 
+        date:"", time:"", from:"", to:"", price:"", numberOfPassengers:"", message:""
     });
    
     let name, value;
@@ -18,14 +18,14 @@ const CreateTrip = () => {
     }
     const postData = async (e) => {
       e.preventDefault();
-      const { date, time, from, to, price, numberOfPassengers} = trips;
+      const { date, time, from, to, price, numberOfPassengers, message} = trips;
       const res = await fetch("/booking", {
         method: "POST",
         headers: {
           "Content-Type" : "application/json"
         },
         body: JSON.stringify({
-            date, time, from, to, price, numberOfPassengers
+            date, time, from, to, price, numberOfPassengers, message
         })
       });
       const data = await res.json();
@@ -33,9 +33,9 @@ const CreateTrip = () => {
         window.alert("Invalid credentials");
         console.log("invalid registration");
       } else {
-        window.alert("Trip Created Succesfully");
+        window.alert("Thank you for posting the trip the passengers will view the post and send requests to your dashboard");
         console.log("sucessful registration");
-        history.push("/posts");
+        history.push("/driverdash");
 
        
       }
@@ -74,8 +74,13 @@ const CreateTrip = () => {
                         <Form.Group controlID="numberOfPassengers">
                             <Form.Label>Amount of passengers</Form.Label>
                             <Form.Control name="numberOfPassengers" value={trips.numberOfPassengers}
-                            onChange={handleInputs}placeholder="3" />
+                            onChange={handleInputs} placeholder="3" />
                         </Form.Group>
+                            <Form.Group controlId="message">
+                            <Form.Label>Message</Form.Label>
+                            <Form.Control name="message" as="textarea" rows={3} value={trips.message}
+                            onChange={handleInputs}/>
+                            </Form.Group>
 
                         <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "submit" onClick={postData}>Post Trip</Button>
                         </Form>

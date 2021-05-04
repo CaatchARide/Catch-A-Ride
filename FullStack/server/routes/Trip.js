@@ -20,20 +20,20 @@ router.post('/booking', async (req, res,) => {
     
     
     try{
-        const { date, time, from, to, price, numberOfPassengers} = req.body;
+        const { date, time, from, to, price, numberOfPassengers, message} = req.body;
 
-        if(!date || !time || !from || !to || !price || !numberOfPassengers){
+        if(!date || !time || !from || !to || !price || !numberOfPassengers || !message){
             return res.status(422).json({ error: "Please fill all the information"})
         }
      
 
-            const newTrip = new trip({ date, time, from, to, price, numberOfPassengers });
+            const newTrip = new trip({ date, time, from, to, price, numberOfPassengers, message });
 
             //pre save it's the middleware
 
             await newTrip.save();
 
-            res.status(201).json({ message: "Thank you for reaching out!"});
+            res.status(201).json({message: "Thank you for reaching out!"});
         
     } catch(err){
         res.status(400).json({ error: "Error" });
@@ -45,7 +45,7 @@ router.post('/booking', async (req, res,) => {
 router.get('/booking', async (req, res,) => {
     
     try{
-        const post = await trip.findOne({});
+        const post = await trip.findOne().sort({x:-1});
         if(!post) throw Error(' No Items');
         res.status(200).json(post); // Everything is okay
     } catch(err) {
@@ -54,16 +54,5 @@ router.get('/booking', async (req, res,) => {
     }
 });
 
-router.get('/booking', async (req, res,) => {
-    
-    try{
-        const post = await trip.findOne({});
-        if(!post) throw Error(' No Items');
-        res.status(200).json(post); // Everything is okay
-    } catch(err) {
-        res.status(400).json({ msg: err })
-
-    }
-});
 
 module.exports = router;

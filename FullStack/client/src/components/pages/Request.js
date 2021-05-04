@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import {  Form, Button } from 'react-bootstrap'
-//import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 
 const Request = () => {
-  //const history = useHistory();
+  const history = useHistory();
   const [request, setRequest] = useState({
     numberOfPassengers:"", numberOfBags:"", preferences:"", additionalInfo:""
   });
@@ -34,9 +34,9 @@ const Request = () => {
       window.alert("Invalid credentials");
       console.log("invalid registration");
     } else {
-      window.alert("Trip Created Succesfully");
+      window.alert("Thank you for the request! Please wait while driver approves your request");
       console.log("sucessful registration");
-      //history.push("/posts");
+      history.push("/passengerDash");
 
      
     }

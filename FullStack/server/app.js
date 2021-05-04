@@ -2,6 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const user = require('./models/userSchema');
 const dotenv = require("dotenv");
+//const passport = require('passport');
+//const flash = require('express-flash');
+
+//passport
+//const initializePassport = require('./middleware/passport-config');
+//initializePassport(passport, 
+    //email => users.find(user => user.email === email)
+//)
+
+//const users = []
 
 //  routes
 const userRoutes = require('./routes/auth');
@@ -37,6 +47,7 @@ app.use(require('./routes/auth', userRoutes));
 app.use(require('./routes/contact', contactRoutes));
 app.use(require('./routes/Trip', tripRoutes));
 app.use(require('./routes/request', requestRoutes));
+
 
 
 

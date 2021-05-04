@@ -23,7 +23,10 @@ export default function passengerDash() {
                 </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
-                <Card.Body>Account Details HERE</Card.Body>
+                <Card.Body>Account Details HERE
+                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/account">View Information</Button>
+                </Card.Body>
+                
                 </Accordion.Collapse>
             </Card>
             <Card>
@@ -45,8 +48,8 @@ export default function passengerDash() {
                 </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="2">
-                <Card.Body>View trips go HERE <br />
-                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/posts">List of Drivers</Button>
+                <Card.Body> Click the button for pending request <br />
+                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/pendingrequest">View requests</Button>
                 </Card.Body>
                 </Accordion.Collapse>
             </Card>

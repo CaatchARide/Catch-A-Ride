@@ -21,7 +21,9 @@ import payment from './components/pages/payment/payment'
 import request from './components/pages/Request'
 import account from './components/pages/Account'
 import createTrip from './components/pages/CreateTrip'
-
+import pendingRequest from './components/pages/bufferPages/PendingRequest'
+import driverRequest from './components/pages/bufferPages/DriverRequest'
+import driverPosts from './components/pages/bufferPages/DriverPosts'
 
 
 //import {Button, Form, Container} from 'react-bootstrap'
@@ -46,6 +48,9 @@ function App() {
         <Route path = '/request' exact component= {request}/>
         <Route path = '/account' exact component= {account}/>
         <Route path = '/createtrip' exact component= {createTrip}/>
+        <Route path = '/pendingrequest' exact component= {pendingRequest}/>
+        <Route path = '/driverrequest' exact component= {driverRequest}/>
+        <Route path = '/driverposts' exact component= {driverPosts}/>
       </Switch>
       <Footer />
       </Router>

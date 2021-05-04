@@ -48,7 +48,7 @@ export default function driverDash() {
                     </Card.Header>
                     <Accordion.Collapse eventKey="2">
                     <Card.Body>
-                        
+                        Click the button to post the trip {" "}{" "}
                         <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "submit" href="/createtrip">Post Trip</Button>
                     </Card.Body>
                     </Accordion.Collapse>
@@ -61,9 +61,9 @@ export default function driverDash() {
                     </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="3">
-                    <Card.Body>Car details go HERE<br />
-                        This button will redirect you to a car form that allows you to register your car. {" "}
-                        <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/car_details">Car Details</Button>
+                    <Card.Body>Trip Details<br />
+                        This button will redirect you to all your created trips {" "}
+                        <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/driverposts">Check your trips</Button>
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>
@@ -74,9 +74,9 @@ export default function driverDash() {
                     </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="4">
-                    <Card.Body>Car details go HERE<br />
-                        This button will redirect you to a car form that allows you to register your car. {" "}
-                        <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/car_details">Car Details</Button>
+                    <Card.Body><br />
+                        This button will redirect you to the requests made by passenger   {" "}
+                        <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/driverrequest">View request</Button>
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>
