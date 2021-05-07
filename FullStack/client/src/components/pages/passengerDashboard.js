@@ -1,13 +1,92 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Container, Accordion, Card, Form} from 'react-bootstrap'
 import carsharing from './images/banner1.png'
 
-export default function passengerDash() {
+export default function PassengerDashboard() {
+    //const history = useHistory();
+    const [chat, setChat] = useState({
+        message:""
+      });
+     
+      let name, value;
+      const handleInputs = (e) => {
+        console.log(e);
+        name = e.target.name;
+        value = e.target.value;
+        setChat({ ...chat, [name]:value});
+      }
+      const PostData = async (e) => {
+        e.preventDefault();
+        const { message } = chat;
+        const res = await fetch("/messaging", {
+          method: "POST",
+          headers: {
+            "Content-Type" : "application/json"
+          },
+          body: JSON.stringify({
+            message
+          })
+        });
+        const data = await res.json();
+        if(res.status === 400 || !data){
+          window.alert("Invalid Registration");
+          console.log("invalid registration");
+        } else {
+          window.alert("Please wait for the Driver response");
+          console.log("sucessful registration");
+          //history.push("/login");
+  
+         
+        }
+  
+  
+      }
+
+
+      ///
+
+      const [chatData, setChatData ] = useState({
+          message:""
+      });
+
+      const callChatPage = async () => {
+          try { 
+              const res = await fetch('/messaging',{
+                  method:"GET",
+                  headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/json",
+                  },
+                  credentials: "include"
+  
+              });
+  
+              const datas = await res.json();
+              console.log(datas);
+              setChatData(datas);
+  
+              if(!res.status === 200) {
+                  const error = new Error(res.error);
+                  throw error;
+              }
+     
+          } catch (error){
+              console.log(error);
+              //history.push('/switchpage');
+          }
+        }
+       
+       
+       
+       useEffect(() => {
+          callChatPage();
+        }, []);
+  
     return (
         <Container classNameName="nonsense">
             <div className="card bg-dark text-white">
-                <img src={carsharing} className="card-img" alt="..."/>
+                <img src={carsharing} className="card-img" alt="..." height="360"/>
                     <div className="card-img-overlay">
     
                     </div>
@@ -23,7 +102,7 @@ export default function passengerDash() {
                 </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
-                <Card.Body>Account Details HERE
+                <Card.Body>Account Details 
                 <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/account">View Information</Button>
                 </Card.Body>
                 
@@ -73,14 +152,17 @@ export default function passengerDash() {
                 </Card.Header>
                 <Accordion.Collapse eventKey="4">
                 <Card.Body>Your recieved messages should appear here: <br />
+                <label> {chatData.message} </label>
                 <Form>
-                    <Form.Group controlId = "passengerMessage">
+                    <Form.Group controlId = "message">
+                       
                         <Form.Label>Enter message:</Form.Label>
-                        <Form.Control type="passengersentMessage" placeholder="Hey!"/>
+                        <Form.Control name="message" value={chat.message}
+                            onChange={handleInputs} placeholder="Hey!"/>
                         <Form.Text> Messages between the driver and passenger are for the sole purpose of communication.</Form.Text>
                     </Form.Group>
                 </Form>
-                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive">Send</Button>
+                <Button style={{backgroundColor:"#72A98C"}} variant="primary" onClick={PostData} type= "drive">Send</Button>
                 </Card.Body>
                 </Accordion.Collapse>
             </Card>

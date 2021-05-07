@@ -105,7 +105,7 @@ router.get('/signin', authenticate, (req, res) => {
 
 });
 
-router.get('/register', async (req, res,) => {
+router.get('/register', authenticate , async (req, res,) => {
     
     try{
         const post = await user.findOne({});

@@ -71,6 +71,8 @@ const Request = () => {
 
                         <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "submit" onClick={postData}>Post Trip</Button>
                         </Form>
+                        <br />
+                        <br />
 
                         </div>
         </>

@@ -45,7 +45,7 @@ router.post('/booking', async (req, res,) => {
 router.get('/booking', async (req, res,) => {
     
     try{
-        const post = await trip.find().sort({ timestamp: -1 });
+        const post = await trip.findOne();
         
         if(!post) throw Error(' No Items');
         res.status(200).json(post); // Everything is okay

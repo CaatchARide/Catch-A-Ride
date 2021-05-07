@@ -41,7 +41,7 @@ const PendingRequest = () => {
         <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
+            <th>Requests</th>
             <th>Number of passengers</th>
             <th>Number of bags</th>
             <th>Preferences</th>

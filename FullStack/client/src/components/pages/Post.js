@@ -76,16 +76,7 @@ const Post = () => {
 </div>
 <br />
 
-    <div class="card" style={divStyle}>
-      <img src={face} class="card-img-top" alt="..."/>
-    <div class="card-body">
-        <h2 class="card-title">Trip Details</h2>
-        < h4> { tripData.from } to { tripData.to }</h4>  <p>Price: { tripData.price }</p> <p>Date: { tripData.date }</p> <p> Time: { tripData.time }</p>
-            <p class="card-text"> { tripData.message } </p>
-             <a href="/request" class="btn btn-primary"> Request Ride</a>
-    
-  </div>
-</div>
+   
 
 </div>
             

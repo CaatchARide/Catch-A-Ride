@@ -38,7 +38,7 @@ export default function Contact() {
       } else {
         window.alert("Thank you for reaching out, we will get back to you!");
         console.log("sucessful contact request");
-        history.push("/driverdash");
+        history.push("/");
 
        
       }

@@ -1,5 +1,5 @@
 import React from 'react'
-//import { Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
 //import "./styles.css";
 
@@ -83,8 +83,9 @@ const payment = () => {
                     </div>
                 </div>
                 <div className="card-footer text-muted d-flex justify-content-end">
-                    <input type="submit" href="/driverDash" value="Cancel" className="btn btn-secondary"></input>
-                    <input type="submit" value="Send" className="btn btn-primary ml-2"></input>
+                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "submit" href="/driverDash">Cancel</Button>
+                <br />
+                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "submit" href="/driverDash">Submit</Button>
 
                 </div>
             </div>

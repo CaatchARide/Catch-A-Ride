@@ -41,7 +41,7 @@ const DriverRequest = () => {
         <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
+            <th>Passenger ID</th>
             <th>Number of passengers</th>
             <th>Number of bags</th>
             <th>Preferences</th>
