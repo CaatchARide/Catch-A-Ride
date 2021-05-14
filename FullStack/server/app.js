@@ -20,9 +20,15 @@ const tripRoutes = require('./routes/Trip');
 const requestRoutes = require('./routes/request')
 const chatRoutes = require('./routes/chat');
 
-
 const app = express();
 
+
+// Use the router file
+app.use(require('./routes/auth', userRoutes));
+app.use(require('./routes/contact', contactRoutes));
+app.use(require('./routes/Trip', tripRoutes));
+app.use(require('./routes/request', requestRoutes));
+app.use(require('./routes/chat', chatRoutes));
 
 
 
@@ -43,12 +49,7 @@ mongoose.connect(DB, {
 })
 .catch(err => console.log(err));
 
-// Use the router file
-app.use(require('./routes/auth', userRoutes));
-app.use(require('./routes/contact', contactRoutes));
-app.use(require('./routes/Trip', tripRoutes));
-app.use(require('./routes/request', requestRoutes));
-app.use(require('./routes/chat', chatRoutes));
+
 
 
 
