@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Table, Button} from 'react-bootstrap'
 const DriverRequest = () => {
-    const [requestData, setRequestData ] = useState({});
+    const [requestData, setRequestData ] = useState([{}]);
 
     const callRequestPage = async () => {
         try { 
@@ -30,7 +30,17 @@ const DriverRequest = () => {
         }
       }
      
-     
+      const Request = ({PassengerNum, bagNum, preferences, additional}) => {
+        return(
+          <tr>
+            <td>{PassengerNum}</td>
+            <td>{bagNum}</td>
+            <td>{preferences}</td>
+            <td>{additional}</td>
+            <td><td> <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive">Yes</Button> <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive">No</Button> </td></td>
+          </tr>
+        )
+      }
      
      useEffect(() => {
         callRequestPage();
@@ -41,7 +51,6 @@ const DriverRequest = () => {
         <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
             <th>Number of passengers</th>
             <th>Number of bags</th>
             <th>Preferences</th>
@@ -50,14 +59,9 @@ const DriverRequest = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>{requestData.numberOfPassengers}</td>
-            <td>{requestData.numberOfBags}</td>
-            <td>{requestData.preferences}</td>
-            <td>{requestData.additionalInfo}</td>
-            <td> <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive">Yes</Button> <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive">No</Button> </td>
-          </tr>
+          {requestData.map(request => (
+              <Request PassengerNum={request.numberOfPassengers} bagNum={request.numberOfBags} preferences={request.preferences} additional={request.additionalInfo}/>
+          ))}
         </tbody>
       </Table>
       <br />
