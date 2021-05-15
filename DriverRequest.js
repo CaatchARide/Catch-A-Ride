@@ -30,6 +30,10 @@ const DriverRequest = () => {
         }
       }
      
+      /**
+       * Author: Josh Forcier
+       * Formats the below map
+       */
       const Request = ({PassengerNum, bagNum, preferences, additional}) => {
         return(
           <tr>
@@ -37,7 +41,7 @@ const DriverRequest = () => {
             <td>{bagNum}</td>
             <td>{preferences}</td>
             <td>{additional}</td>
-            <td><td> <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive">Yes</Button> <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive">No</Button> </td></td>
+            <td> <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive">Yes</Button> <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive">No</Button> </td>
           </tr>
         )
       }
@@ -58,6 +62,12 @@ const DriverRequest = () => {
             <th>Accept Request?</th>
           </tr>
         </thead>
+
+      {/**
+       * Author: Josh Forcier
+       * Uses above format to pull requests from the database and display them in a table
+      */}
+
         <tbody>
           {requestData.map(request => (
               <Request PassengerNum={request.numberOfPassengers} bagNum={request.numberOfBags} preferences={request.preferences} additional={request.additionalInfo}/>

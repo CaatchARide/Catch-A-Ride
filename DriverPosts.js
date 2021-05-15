@@ -30,7 +30,10 @@ const DriverPosts = () => {
         }
       }
 
-    //This particular portion of code designed to map out and display information of the database was written by Josh Forcier
+    /**
+    * Author: Josh Forcier
+    * Formats the below map that pulls made driver posts
+    */
     const Trip = ({date, time, from, to, price}) => {
       return(
         <tr>
@@ -39,7 +42,7 @@ const DriverPosts = () => {
           <td>{from}</td>
           <td>{to}</td>
           <td>{price}</td>
-        </tr>
+        </tr> 
       )
     }
      
@@ -63,7 +66,10 @@ const DriverPosts = () => {
           </tr>
         </thead>
        
-        {/**References code above for formatting, also written by Josh Forcier */}
+    {/**
+    * Author: Josh Forcier
+    * Formats the below map
+    */}
         <tbody>
           {tripData.map(trip => (
               <Trip date={trip.date} time={trip.time} from={trip.from} to={trip.to} price={trip.price}/>
