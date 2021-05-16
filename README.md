@@ -19,15 +19,22 @@ Josh: View trips/view posted trips/view requests/view pending requests pulling f
 Rob: Testing the API end points
 
 # Instructions to run the code:
- Install all dependencies with 
+Install all dependencies with 
+  
   npm i
+  
  Create a dotenv file
+ 
   config.local 
+  
 and store the information
 
  Run the server
+ 
 Change directory to server
+
   cd server
+  
 Run the server on http://localhost:9000
   npx nodemon app.js
  Run the client
@@ -39,10 +46,15 @@ Run the server on http://localhost:9000
 # Resources:
 
 https://github.com/briancodex/react-footer-tutorial#readme  
+
 https://react-bootstrap.github.io/
+
 https://www.youtube.com/watch?v=I2UBjN5ER4s&t=3949s
+
 npmjs.com
+
 https://expressjs.com/en/guide/routing.html
+
 https://nodejs.org/en/docs/
 
 
