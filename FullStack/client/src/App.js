@@ -10,11 +10,11 @@ import home from './components/pages/Home'
 import login from './components/pages/Login'
 import signup from './components/pages/Signup'
 import about from './components/pages/About'
-import car_details from './components/pages/car_details.js'
+import car_details from './components/pages/Car_details.js'
 import switchpage from './components/pages/Switchpage'
 import contact from './components/pages/Contact'
 import driverDashboard from './components/pages/DriverDash'
-import passengerDashboard from './components/pages/PassengerDashboard'
+import PassengerDashboard from './components/pages/passengerDashboard'
 import post from './components/pages/Post'
 import Footer from './components/Footer'
 import payment from './components/pages/payment/payment'
@@ -26,8 +26,7 @@ import driverRequest from './components/pages/bufferPages/DriverRequest'
 import driverPosts from './components/pages/bufferPages/DriverPosts'
 
 
-//import {Button, Form, Container} from 'react-bootstrap'
-
+//Implemented Router from react-router-dom that is being used to have a website with multiple pages. Implementation done by front end team. 
 function App() {
   return (
     <>
@@ -42,7 +41,7 @@ function App() {
         <Route path = '/switchpage' exact component= {switchpage}/>
         <Route path = '/Contact' exact component= {contact}/>
         <Route path = '/driverDash' exact component= {driverDashboard}/>
-        <Route path = '/passengerDash' exact component= {passengerDashboard}/>
+        <Route path = '/passengerDash' exact component= {PassengerDashboard}/>
         <Route path = '/posts' exact component= {post}/>
         <Route path = '/payment' exact component= {payment}/>
         <Route path = '/request' exact component= {request}/>

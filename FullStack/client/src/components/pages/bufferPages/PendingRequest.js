@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Table} from 'react-bootstrap'
 const PendingRequest = () => {
-    const [requestData, setRequestData ] = useState({});
+    const [requestData, setRequestData ] = useState([{}]);
 
     const callRequestPage = async () => {
         try { 
@@ -31,6 +31,20 @@ const PendingRequest = () => {
       }
      
      
+    /**
+    * Author: Josh Forcier
+    * Formats the below map
+    */
+    const Request = ({PassengerNum, bagNum, preferences, additional}) => {
+      return(
+        <tr>
+          <td>{PassengerNum}</td>
+          <td>{bagNum}</td>
+          <td>{preferences}</td>
+          <td>{additional}</td>
+        </tr>
+      )
+    }
      
      useEffect(() => {
         callRequestPage();
@@ -41,23 +55,21 @@ const PendingRequest = () => {
         <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Requests</th>
             <th>Number of passengers</th>
             <th>Number of bags</th>
             <th>Preferences</th>
             <th>Additional Info</th>
-            <th>Status</th>
           </tr>
         </thead>
+
+    {/**
+    * Author: Josh Forcier
+    * References the above format to pull sent requests
+    */}
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>{requestData.numberOfPassengers}</td>
-            <td>{requestData.numberOfBags}</td>
-            <td>{requestData.preferences}</td>
-            <td>{requestData.additionalInfo}</td>
-            <td>{requestData.status}</td>
-          </tr>
+          {requestData.map(request => (
+              <Request PassengerNum={request.numberOfPassengers} bagNum={request.numberOfBags} preferences={request.preferences} additional={request.additionalInfo}/>
+          ))}
         </tbody>
       </Table>
       <br />

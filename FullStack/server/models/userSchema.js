@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const uniqueValidator= require('mongoose-unique-validator');
 
 const userSchema = new mongoose.Schema({
- user:{
     firstName: {
         type: String,
         required: true   
@@ -36,11 +36,10 @@ const userSchema = new mongoose.Schema({
             }
         }
     ] 
-}          
+         
 });
 
-
-
+userSchema.plugin(uniqueValidator);
 // hashing the password
 userSchema.pre('save', async function(next){
     if(this.isModified('password')){
@@ -62,6 +61,7 @@ userSchema.methods.generateAuthToken = async function(){
         res.status(400).json({ error: "error" });
     }
 }
+
 
 const user = mongoose.model('user', userSchema);
 

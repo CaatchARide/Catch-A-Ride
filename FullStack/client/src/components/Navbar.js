@@ -1,14 +1,9 @@
+//Implemented by Hector Salas
 import React from 'react';
-//import { Button } from './Button';
-//import './Navbar.css';
 import {Navbar, Nav, Container} from 'react-bootstrap'
 
-
 export default function Home() {
-    
-    return (
-        
-        
+    return (  
     <Navbar className="navbar" variant="dark" expand="lg" >
         <Container className="container">
         <Navbar.Brand href="/">Catch-A-Ride</Navbar.Brand>

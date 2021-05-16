@@ -1,9 +1,10 @@
+//Created by Brandon Cabrol
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Form, Container} from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
-
-
+    
+//Layout of signup page setup by Hector Salas
 
 export default function Signup() {
    const history = useHistory();
@@ -38,14 +39,14 @@ export default function Signup() {
         window.alert("Succesful Registration");
         console.log("sucessful registration");
         history.push("/login");
-
-       
       }
-
-
     }
+
     return (
-      
+    
+    //Container centers anything inside of it for a better user interation
+    //Form makes a page that can be used to take inputs from user such as first name, last name, 
+    //date of birth, email, password
     <Container className="nonsense" method="POST">
         <h3 style={{textAlign : 'center'}}>Sign-up Page</h3>
         <Form >
@@ -110,7 +111,6 @@ export default function Signup() {
         </Form>
 
     </Container>
+
     );
 };
-
-//href="http://localhost:4000/login"

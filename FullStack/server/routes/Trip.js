@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { response } = require('express');
+const passport = require('passport');
+const Authenticate = require('../middleware/authenticate')
 
 const trip = require('../models/tripSchema');
 
-router.get('/trips', async (req, res,) => {
+router.get('/trips', Authenticate, async (req, res,) => {
     
     try{
         const trips = await trip.find();
@@ -45,7 +47,7 @@ router.post('/booking', async (req, res,) => {
 router.get('/booking', async (req, res,) => {
     
     try{
-        const post = await trip.findOne();
+        const post = await trip.find();
         
         if(!post) throw Error(' No Items');
         res.status(200).json(post); // Everything is okay

@@ -1,4 +1,4 @@
-const jwtoken = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const user = require("../models/userSchema");
 const express = require('express');
 const router = express.Router();
@@ -7,9 +7,9 @@ const router = express.Router();
 const Authenticate = async (req, res, next) => {
     try{
         const token = req.cookie.jwtoken;
-        const verifyToken = jwt.verify(process.env.SECRET_KEY, token);
+        const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
 
-        const rootUser = await user.findOne({ _id:verifyToken._id, "token.token": token });
+        const rootUser = await user.findOne({ _id:verifyToken._id, "tokens.token": token });
 
         if(!rootUser) { throw new error('User not found') }
 
@@ -25,5 +25,15 @@ const Authenticate = async (req, res, next) => {
         console.log(err);
     }
 }
+
+const isAuth = (req, res, next) => {
+    if(req.session.isAuth){
+        next()
+    } else {
+        res.redirect('/signin')
+    }
+}
+
+
 
 module.exports = Authenticate;

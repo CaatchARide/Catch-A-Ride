@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-//import { Form } from 'react-bootstrap'
-//import { useHistory } from "react-router-dom";
-
 
 const Account = () => {
     //const history = useHistory();

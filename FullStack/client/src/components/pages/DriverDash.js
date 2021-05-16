@@ -1,12 +1,12 @@
+//Driver dashboard implemented by Hector Salas, 
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Container, Accordion, Card, Form} from 'react-bootstrap'
 import banner1 from './images/banner.png'
 
  export default function DriverDash () {
-     //const history = useHistory();
-     const [chat, setChat] = useState({
-        message:""
+     const [chat, setChat] = useState({ //sends message
+        message: ""
       });
      
       let name, value;
@@ -16,9 +16,12 @@ import banner1 from './images/banner.png'
         value = e.target.value;
         setChat({ ...chat, [name]:value});
       }
+
       const PostData = async (e) => {
         e.preventDefault();
         const { message } = chat;
+        const{ userType } = `driver`;
+
         const res = await fetch("/messaging", {
           method: "POST",
           headers: {
@@ -28,6 +31,7 @@ import banner1 from './images/banner.png'
             message
           })
         });
+
         const data = await res.json();
         if(res.status === 400 || !data){
           window.alert("Invalid Registration");
@@ -35,24 +39,14 @@ import banner1 from './images/banner.png'
         } else {
           window.alert("Please wait for the passenger response");
           console.log("sucessful registration");
-          //history.push("/login");
-  
-         
         }
-  
-  
       }
-
-
-      ///
-
-      const [chatData, setChatData ] = useState({
-          message:""
-      });
+      
+      const [chatData, setChatData ] = useState([{}]); //Recieving the message implemented by Hector Salas
 
       const callChatPage = async () => {
           try { 
-              const res = await fetch('/messaging',{
+              const res = await fetch('/messaging',{ //gets information from mongoDB
                   method:"GET",
                   headers: {
                       Accept: "application/json",
@@ -73,17 +67,27 @@ import banner1 from './images/banner.png'
      
           } catch (error){
               console.log(error);
-              //history.push('/switchpage');
           }
         }
-       
-       
-       
-       useEffect(() => {
-          callChatPage();
-        }, []);
+
+        const Message = ({message , userType}) => {//used to format the messages between driver and passenger
+            return(
+                <div>
+                    {message}
+                    {userType}
+                </div>
+            )
+        }
+
+        useEffect(() => {//runs method on page refresh
+            callChatPage();
+          }, []);
+
+
   
-      return (
+      return ( 
+          //Accordion was used to separate different functions in the dashboard for easier user interaction
+          //
           <Container className="nonsense" method="GET">
               <div className="card bg-dark text-white">
                   <img src={banner1} className="card-img" height="360" alt="..."/>
@@ -167,25 +171,31 @@ import banner1 from './images/banner.png'
                       </Card.Header>
                       <Accordion.Collapse eventKey="5">
                       <Card.Body>Your recieved messages should appear here: <br />
-                      <label>{chatData.message}</label>
+                        <div> {/*Displaying the messages sent between the driver and passenger by Hector Salas*/}
+                            {chatData.map(msg => (
+                                <Message userType={msg.userType} message={msg.message}/>
+                            ))}
+                        </div>
                       <Form>
                           <Form.Group controlId = "message">
-                          
                               <Form.Label>Enter message:</Form.Label>
                               <Form.Control name="message" value={chat.message}
-                            onChange={handleInputs} placeholder="Hey!"/>
+                                onChange={handleInputs} placeholder="Hey!"/>
                               <Form.Text> Messages between the driver and passenger are for the sole purpose of communication.</Form.Text>
                           </Form.Group>
                       </Form>
                       <Button style={{backgroundColor:"#72A98C"}} variant="primary" onClick={PostData} type= "drive">Send</Button>
+                      {/*<Button style={{backgroundColor:"#72A98C"}} variant="primary" onClick={callChatPage}>get</Button>
+                        Uncomment this for testing
+                        */}
                       </Card.Body>
                       </Accordion.Collapse>
                   </Card>
                   </Accordion>
               <div>
                   <br/>
-                  <span>This button will redirect you to the passenger dashboard.   </span>
-                  <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/passengerDash">Switch to passenger</Button>
+                  <span>   </span>
+                  <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/switchpage">Home</Button>
               </div>
           </Container>
             

@@ -1,16 +1,13 @@
+//Created by Brandon Cabrol
 import React, { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 //import face from './images/drivericon.png'
 //import carpool from './images/icon-standard.png'
 import { Button } from 'react-bootstrap'
 
-
-
+//Function for setting up driver and passenger cards with buttons 
+//that are connected to both driver and passenger dashboards
 export default function Switchpage() {
-   
-   
-
-  
   return (
         
         <div className="nonsense">

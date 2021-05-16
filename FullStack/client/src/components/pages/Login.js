@@ -1,8 +1,8 @@
+//Created by Brandon Cabrol, Hector Salas
 import React, {useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Form, Container} from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
-
 
 export default function Login() {
   const history = useHistory();
@@ -41,7 +41,8 @@ export default function Login() {
 
 
   return (
-  
+//Container for user to log into their accounts
+//Form allows us to ask for the user email and password and store the input
 <Container className="nonsense" method="POST">
   <h3 style={{textAlign : 'center'}}>Login Page</h3>
     <Form method="POST">

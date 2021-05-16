@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Table} from 'react-bootstrap'
 const DriverPosts = () => {
-    const [tripData, setTripData ] = useState({});
+    const [tripData, setTripData ] = useState([{}]);
 
     const callTripPage = async () => {
         try { 
@@ -19,7 +19,7 @@ const DriverPosts = () => {
             //console.log(data);
             setTripData(data);
 
-            if(!res.status === 200) {
+            if(!res.status === 201) {
                 const error = new Error(res.error);
                 throw error;
             }
@@ -29,8 +29,25 @@ const DriverPosts = () => {
             //history.push('/switchpage');
         }
       }
+
+    /**
+    * Author: Josh Forcier
+    * Formats the below map that pulls made driver posts
+    */
+    const Trip = ({date, time, from, to, price}) => {
+      return(
+        <tr>
+          <td>{date}</td>
+          <td>{time}</td>
+          <td>{from}</td>
+          <td>{to}</td>
+          <td>{price}</td>
+        </tr> 
+      )
+    }
      
-     
+
+
      
      useEffect(() => {
         callTripPage();
@@ -41,7 +58,6 @@ const DriverPosts = () => {
         <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
             <th>Date</th>
             <th>Time</th>
             <th>From</th>
@@ -49,15 +65,15 @@ const DriverPosts = () => {
             <th>Price</th>
           </tr>
         </thead>
+       
+    {/**
+    * Author: Josh Forcier
+    * Formats the below map
+    */}
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>{tripData.date}</td>
-            <td>{tripData.time}</td>
-            <td>{tripData.from}</td>
-            <td>{tripData.to}</td>
-            <td>{tripData.price}</td>
-          </tr>
+          {tripData.map(trip => (
+              <Trip date={trip.date} time={trip.time} from={trip.from} to={trip.to} price={trip.price}/>
+          ))}
         </tbody>
       </Table>
       <br />

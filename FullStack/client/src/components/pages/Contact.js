@@ -1,10 +1,11 @@
+//Created by Brandon Cabrol
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Form, Container} from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
 
-
+//function for Contact page
 export default function Contact() {
     
     const history = useHistory();
@@ -45,7 +46,9 @@ export default function Contact() {
 
 
     }
-
+//Container centers contents inside and asks the user to 
+//input their name, email, and message text. 
+//FormGroup creates a section in the form for each user input
     return (
         <Container className="nonsense">
             Got a question? We'd love to hear from you! Send us a message and we'll respond as soon as possible.
@@ -69,7 +72,7 @@ export default function Contact() {
 
         </Form>
         <Form>
-           
+           {/*Creates button type and text within button*/}
         <Button style={{backgroundColor:"#72A98C"}} variant="primary" type="submit" onClick={postData}>Submit</Button>
         </Form>
 

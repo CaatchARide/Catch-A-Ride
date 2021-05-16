@@ -1,10 +1,10 @@
+//Passenger dashboard implemented by Hector Salas
 import React, {useState, useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Container, Accordion, Card, Form} from 'react-bootstrap'
 import carsharing from './images/banner1.png'
 
 export default function PassengerDashboard() {
-    //const history = useHistory();
     const [chat, setChat] = useState({
         message:""
       });
@@ -36,23 +36,14 @@ export default function PassengerDashboard() {
           window.alert("Please wait for the Driver response");
           console.log("sucessful registration");
           //history.push("/login");
-  
-         
         }
-  
-  
       }
 
-
-      ///
-
-      const [chatData, setChatData ] = useState({
-          message:""
-      });
+      const [chatData, setChatData ] = useState([{}]); //Recieving the message implemented by Hector Salas
 
       const callChatPage = async () => {
           try { 
-              const res = await fetch('/messaging',{
+              const res = await fetch('/messaging',{ //gets information from mongoDB
                   method:"GET",
                   headers: {
                       Accept: "application/json",
@@ -63,7 +54,7 @@ export default function PassengerDashboard() {
               });
   
               const datas = await res.json();
-              console.log(datas);
+              
               setChatData(datas);
   
               if(!res.status === 200) {
@@ -76,14 +67,24 @@ export default function PassengerDashboard() {
               //history.push('/switchpage');
           }
         }
-       
-       
-       
-       useEffect(() => {
+
+        const userType = ({})
+
+        const Message = ({message}) => { //used to format the messages between driver and passenger
+            return(
+                <div>
+                    {message}
+                </div>
+            )
+        }
+
+       useEffect(() => { //runs method on page refresh
           callChatPage();
         }, []);
   
     return (
+        //Accordion was used to separate different functions in the dashboard for easier user interaction
+
         <Container classNameName="nonsense">
             <div className="card bg-dark text-white">
                 <img src={carsharing} className="card-img" alt="..." height="360"/>
@@ -105,7 +106,6 @@ export default function PassengerDashboard() {
                 <Card.Body>Account Details 
                 <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/account">View Information</Button>
                 </Card.Body>
-                
                 </Accordion.Collapse>
             </Card>
             <Card>
@@ -151,8 +151,14 @@ export default function PassengerDashboard() {
                 </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="4">
-                <Card.Body>Your recieved messages should appear here: <br />
-                <label> {chatData.message} </label>
+                <Card.Body>Your recieved messages should appear here: <br /><br />
+                <div>{/*Displaying the messages sent between the driver and passenger by Hector Salas*/}
+                    {chatData.map(msg => (
+                        <Message message={msg.message}/>
+                    ))}
+                </div>
+                <br />
+                <br />
                 <Form>
                     <Form.Group controlId = "message">
                        
@@ -163,14 +169,17 @@ export default function PassengerDashboard() {
                     </Form.Group>
                 </Form>
                 <Button style={{backgroundColor:"#72A98C"}} variant="primary" onClick={PostData} type= "drive">Send</Button>
+                {/*<Button style={{backgroundColor:"#72A98C"}} variant="primary" onClick={callChatPage}>get</Button>
+                Uncomment this for testing
+                */}
                 </Card.Body>
                 </Accordion.Collapse>
             </Card>
             </Accordion>
             <div>
                 <br/>
-                <span>This button will redirect you to the driver dashboard.   </span>
-                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/driverDash">Switch to driver</Button>
+                <span>  </span>
+                <Button style={{backgroundColor:"#72A98C"}} variant="primary" type= "drive" href="/switchpage">Home</Button>
                 <br />
                 <br />
                 <br />

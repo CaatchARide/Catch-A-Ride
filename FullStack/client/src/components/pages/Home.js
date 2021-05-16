@@ -1,3 +1,4 @@
+//Home implemented by Hector Salas, Tianna Brown
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Col, Container, Row, Button} from 'react-bootstrap'
@@ -20,7 +21,7 @@ export default function Home() {
                 <br />
                     <Col><Col><Col><Col><Col>
                     <h5 style={{justifyContent :'left', fontStyle :'italic'}}>A community that will help you get to your destination...</h5>
-                    <h1 style={{fontWeight :'bolder', textAlign : 'center'}}>CATCH A RIDE WITH US.</h1>
+                    <h1 style={{fontWeight :'bolder', justifyContent :'left'}}>CATCH A RIDE WITH US.</h1>
                     </Col></Col></Col></Col></Col>
                     <br />
                     <br />

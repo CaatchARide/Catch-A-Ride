@@ -45,7 +45,7 @@ router.post('/makerequest', async (req, res,) => {
 router.get('/makerequest', async (req, res,) => {
     
     try{
-        const post = await request.findOne({});
+        const post = await request.find({});
         if(!post) throw Error(' No Items');
         res.status(200).json(post); // Everything is okay
     } catch(err) {
