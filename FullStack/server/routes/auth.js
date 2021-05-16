@@ -7,10 +7,12 @@ const passport = require('passport');
 const user = require('../models/userSchema');
 const config = require('../middleware/database');
 
+/*
+author: Varun Chandan
+*/
 
 
-
-
+// This is the endpoint for getting the data
 router.get('/', async (req, res,) => {
     try{
         const users = await user.find();
@@ -22,7 +24,7 @@ router.get('/', async (req, res,) => {
     }
 });
 
-
+// This is where we get the user from client and store it in the database
 
 router.post('/register', async (req, res,) => {
     try{
@@ -58,7 +60,7 @@ router.post('/register', async (req, res,) => {
     
 });
         
-    // This is for the user log in end poin for the backend
+    // This is for the user log in end point for the backend
     router.post('/signin', async(req, res) => {
         try{
             let token;

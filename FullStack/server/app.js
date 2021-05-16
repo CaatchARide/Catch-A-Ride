@@ -5,21 +5,12 @@ const dotenv = require('dotenv');
 const session = require('express-session');
 const MongoDbSession = require('connect-mongodb-session')(session);
 const cookieParser = require('cookie-parser')
-
-//const MongoStore = require('connect-mongo');
-
 const passport = require('passport');
 const path = require('path');
 
-//const flash = require('express-flash');
-
-//passport
-//const initializePassport = require('./middleware/passport-config');
-//initializePassport(passport, 
-    //email => users.find(user => user.email === email)
-//)
-
-
+/*
+author: Varun Chandan
+*/
 
 //  routes
 const userRoutes = require('./routes/auth');
@@ -31,11 +22,6 @@ const detailsRoutes = require('./routes/driver');
 
 
 const app = express();
-
-
-
-
-
 
 
 
@@ -68,7 +54,7 @@ const store = new MongoDbSession({
     collection: "userSessions"
 
 })
-
+// tried implementing user-session
 app.use(session({
     secret: 'some secret',
     resave: false,
@@ -97,7 +83,7 @@ app.use(require('./routes/driver', detailsRoutes));
 // Bring in the passport authentication strategy 
 require('./middleware/passport-config')(passport);
 
-
+// Running the local server on the port
 const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, () => console.log(`Server is running at port ${PORT}`));
