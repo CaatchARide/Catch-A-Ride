@@ -3,6 +3,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const uniqueValidator= require('mongoose-unique-validator');
 
+/*
+author: Varun Chandan
+*/
+
 const userSchema = new mongoose.Schema({
     firstName: {
         type: String,

@@ -68,7 +68,7 @@ export default function PassengerDashboard() {
           }
         }
 
-        const userType = ({})
+       
 
         const Message = ({message}) => { //used to format the messages between driver and passenger
             return(

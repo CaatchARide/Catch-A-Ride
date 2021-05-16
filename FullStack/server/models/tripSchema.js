@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 
+/*
+author: Varun Chandan
+*/
+
 const tripSchema = new mongoose.Schema({
  
     date: {

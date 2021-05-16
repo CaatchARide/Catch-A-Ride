@@ -4,11 +4,14 @@ const { response } = require('express');
 
 const driverDetails = require('../models/driverDetailsSchema');
 
+/*
+author: Varun Chandan
+*/
+
 
 
 router.post('/driverdetails', async (req, res,) => {
-    
-    
+
     try{
         const { license, plateNumber } = req.body;
 

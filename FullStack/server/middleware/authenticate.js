@@ -3,7 +3,7 @@ const user = require("../models/userSchema");
 const express = require('express');
 const router = express.Router();
 
-
+// This function will authorize and verify the token in the cookie and keep the user logged in
 const Authenticate = async (req, res, next) => {
     try{
         const token = req.cookie.jwtoken;

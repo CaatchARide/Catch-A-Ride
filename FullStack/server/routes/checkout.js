@@ -3,11 +3,17 @@ const express = require('express');
 const app = express();
 app.use(express.static('.'));
 
+/*
+author: Varun Chandan
+*/
+
+// We tried to implement the Stripe API
+
+
+
 const YOUR_DOMAIN = 'http://localhost:3000/checkout';
 
 app.post('/create-checkout-session', async (req, res) => {
-  
-  
     const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: [

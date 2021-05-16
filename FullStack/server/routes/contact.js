@@ -18,17 +18,13 @@ router.get('/contacts', async (req, res,) => {
     }
 });
 
+// End point for storing the  messages
 router.post('/message', async (req, res,) => {
-    
-    
     try{
         const { name, email, message } = req.body;
-
         if(!name || !email || !message ){
             return res.status(422).json({ error: "Please fill all the information"})
         }
-     
-
             const newContact = new contact({ name, email, message });
 
             //pre save it's the middleware
@@ -44,6 +40,8 @@ router.post('/message', async (req, res,) => {
     
 });
 
+
+// End point for the  trying sending emails to the users
 router.post('/sendemail', async (req, res,) => {
     try{
         const {name, email, message }  = req.body;
