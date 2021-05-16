@@ -19,6 +19,7 @@ Josh: View trips/view posted trips/view requests/view pending requests pulling f
 Rob: Testing the API end points
 
 # Instructions to run the code:
+
 Install all dependencies with 
   
   npm i
@@ -36,11 +37,17 @@ Change directory to server
   cd server
   
 Run the server on http://localhost:9000
+
   npx nodemon app.js
+  
  Run the client
+ 
   Change directory to cient
+  
     cd client
+    
   Run the client side on http://localhost:3000
+  
   npm start
 
 # Resources:
