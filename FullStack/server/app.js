@@ -37,8 +37,8 @@ app.use(passport.session());
 
 // connect to MongoDB
 dotenv.config({ path: './config.env' });
-const DB = process.env.DATABASE;
-mongoose.connect(DB, {
+const mongodb = process.env.DATABASE;
+mongoose.connect(mongodb, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -84,7 +84,7 @@ app.use(require('./routes/driver', detailsRoutes));
 require('./middleware/passport-config')(passport);
 
 // Running the local server on the port
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server is running at port ${PORT}`));
 
